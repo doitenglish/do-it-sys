@@ -8,7 +8,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function Page() {
   const router = useRouter();
@@ -16,6 +16,7 @@ function Page() {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [errMsg, setErrMsg] = useState("");
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleSignIn = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -41,15 +42,24 @@ function Page() {
         throw new Error(result.message);
       }
 
-      return router.push(result.path!);
+      // 페이지 전환을 수행하기 전에 상태를 유지하기 위해 임의의 딜레이 추가
+      timerRef.current = setTimeout(() => {
+        router.push(result.path!);
+      }, 1000);
     } catch (error) {
       console.error(error);
-
       setErrMsg("Something went wrong, try again.");
-    } finally {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+      }
+    };
+  }, []);
 
   return (
     <>

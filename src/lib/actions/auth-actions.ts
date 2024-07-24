@@ -11,7 +11,6 @@ import { CurrentUser } from "@/definitions/common-types";
 export async function signIn(idToken: string) {
   try {
     let decodedToken = await verifyIdToken(idToken);
-    console.log(decodedToken);
 
     if (!decodedToken) {
       return {

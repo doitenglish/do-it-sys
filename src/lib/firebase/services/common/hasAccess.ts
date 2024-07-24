@@ -9,7 +9,6 @@ type HasAccessOutput = QueryOutput<{ role: Role; name: string }>;
 export async function setAdminClaim(id: string) {
   try {
     const result = await getRoleAndName(id);
-    console.log(result);
 
     if (!result.ok) {
       return false;

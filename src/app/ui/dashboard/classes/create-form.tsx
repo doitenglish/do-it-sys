@@ -20,7 +20,6 @@ function CreateClassForm({
   teachers: FrontendTeacher[];
 }) {
   const [teacher, setTeacher] = useState(teachers[0]);
-  console.log(teachers);
 
   const [level, setLevel] = useState(levels[0]);
   const [divisions, setDivisions] = useState(
