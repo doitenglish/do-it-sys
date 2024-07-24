@@ -1,0 +1,26 @@
+{
+  "name": "Do-it",
+  "short_name": "Do-it",
+  "icons": [
+    {
+      "src": "/192.jpg",
+      "sizes": "192x192",
+      "type": "image/jpg"
+    },
+    {
+      "src": "/384.jpg",
+      "sizes": "384x384",
+      "type": "image/jpg"
+    },
+    {
+      "src": "/512.jpg",
+      "sizes": "512x512",
+      "type": "image/jpg"
+    }
+  ],
+  "theme_color": "#000000",
+  "background_color": "#FFFFFF",
+  "start_url": "/dashboard/login",
+  "display": "standalone",
+  "orientation": "portrait"
+}
