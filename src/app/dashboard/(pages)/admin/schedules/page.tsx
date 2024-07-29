@@ -26,7 +26,7 @@ async function Page({
       ?.backendFormat ||
     DAY_OF_WEEKS[0].backendFormat;
   const currentPeriod =
-    Number(searchParams?.period) || getCurrentPeriod(today.getHours());
+    Number(searchParams?.period) || getCurrentPeriod(today.getUTCHours() + 9);
 
   return (
     <div className="default-wrapper">
