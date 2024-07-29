@@ -71,6 +71,7 @@ function Page() {
               alt="main_logo"
               width={80}
               height={80}
+              priority
             />
             <h1 className="text-3xl ml-3 text-neutral-700">DO-IT</h1>
           </div>
@@ -101,6 +102,7 @@ function Page() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="block w-full text-sm px-3 py-3.5 border border-neutral-300 focus:border-neutral-500 focus:outline-none shadow focus:shadow-md mb-16"
+              autoComplete="password"
             />
             <Button className="" aria-disabled={isLoading}>
               {isLoading ? "Loading..." : "Login"}

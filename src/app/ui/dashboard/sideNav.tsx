@@ -9,7 +9,7 @@ function SideNav({ role, name }: { role: string; name: string }) {
   return (
     <div className="h-full  w-full min-w-[320px] px-7 py-12 flex flex-col justify-between border-r-[1.5px] border-neutral-200  ">
       <div className="flex flex-col w-full">
-        <div className=" mb-12 flex w-full justify-between items-end">
+        <div className=" mb-12 flex w-full  justify-between items-end">
           <Image
             src="/logo_final_4.png"
             alt="main logo"
