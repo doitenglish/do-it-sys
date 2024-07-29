@@ -215,6 +215,7 @@ export async function deleteStudent(
       }
 
       const student = studentSnapshot.data() as BackendStudent;
+      const doAccountRef = adminDB.collection("do").doc(id);
 
       if (student.totalSchedules > 0) {
         throw new Error();
@@ -232,6 +233,7 @@ export async function deleteStudent(
       }
 
       transaction.delete(studentRef);
+      transaction.delete(doAccountRef);
       await adminAuth.deleteUser(id);
     });
 
