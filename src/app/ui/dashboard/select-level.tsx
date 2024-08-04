@@ -16,9 +16,7 @@ function SelectLevel({
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  const [level, setLevel] = useState(
-    forSchedule ? "All" : levels.length > 0 ? levels[0].id : "All"
-  );
+  const [level, setLevel] = useState("All");
   const [divisions, setDivisions] = useState<string[]>([]);
   const [division, setDivision] = useState("");
 
@@ -26,6 +24,7 @@ function SelectLevel({
     const params = new URLSearchParams(searchParams);
 
     const currentLvl = levels.find((lvl) => lvl.id == level);
+
     setDivisions(currentLvl?.divisions ?? []);
     params.set("query", "");
     params.set("page", "1");

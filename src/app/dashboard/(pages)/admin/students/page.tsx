@@ -22,8 +22,7 @@ async function Page({
 
   const query = searchParams?.query || "";
   const currentPage = Number(searchParams?.page) || 1;
-  const currentLevel =
-    searchParams?.level || levels.length > 0 ? levels[0].id : "All";
+  const currentLevel = searchParams?.level || "All";
   const currentDivision = searchParams?.division || "All";
 
   return (
