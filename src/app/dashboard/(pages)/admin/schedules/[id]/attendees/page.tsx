@@ -4,11 +4,7 @@ import SelectStudentContainer from "@/app/ui/dashboard/schedules/students-contai
 import SelectLevel from "@/app/ui/dashboard/select-level";
 import { TableSkeleton } from "@/app/ui/dashboard/skeletons";
 import AttendeeTable from "@/app/ui/dashboard/students/attendees-table";
-import {
-  ADMIN_CLASS_BASE_PATH,
-  ADMIN_SCHEDULES_BASE_PATH,
-  CLASS_BASE_PATH,
-} from "@/lib/constants";
+import { ADMIN_SCHEDULES_BASE_PATH } from "@/lib/constants";
 import { getLevelsForSelect } from "@/lib/data/level-data";
 import { getScheduleById } from "@/lib/data/schedule-data";
 import { getAttendees } from "@/lib/data/student-data";
@@ -28,7 +24,7 @@ async function Page({
   const attendees = await getAttendees(schedule.attendees);
   const levels = await getLevelsForSelect();
 
-  const currentLevel = searchParams?.level || levels[0].id || "All";
+  const currentLevel = searchParams?.level || "All";
   const currentDivision = searchParams?.division || "All";
   return (
     <div className="default-wrapper">

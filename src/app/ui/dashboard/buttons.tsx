@@ -78,7 +78,7 @@ export function DeleteButton({
     <Button
       onClick={(e) => {
         e.preventDefault();
-        const ok = confirm("The action can't be undone.");
+        const ok = confirm("This action can'be undone.");
 
         if (ok) {
           action();
@@ -101,7 +101,7 @@ export function ResetPassword({
       className="border py-3.5 px-4 hover:bg-gray-100 flex items-center gap-x-3"
       onClick={(e) => {
         e.preventDefault();
-        const ok = confirm();
+        const ok = confirm("This action can'be undone.");
 
         if (ok) {
           action();
