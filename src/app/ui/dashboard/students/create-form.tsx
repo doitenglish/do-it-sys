@@ -9,7 +9,7 @@ import { ErrorBox, FormRow, Slash, UnderArr } from "../form";
 import { FrontendLevel } from "@/definitions/level-types";
 
 function CreateStudentForm({ levels }: { levels: FrontendLevel[] }) {
-  const [nameKo, setNameKo] = useState("");
+  const [nameEn, setNameEn] = useState("");
   const [signInID, setSignInID] = useState("");
   const [phone, setPhone] = useState("");
 
@@ -36,6 +36,10 @@ function CreateStudentForm({ levels }: { levels: FrontendLevel[] }) {
 
   const maxDate = formatDate(new Date());
 
+  useEffect(() => {
+    setSignInID(signInID.toUpperCase());
+  }, [signInID]);
+
   return (
     <form action={dispatch} className="flex flex-col">
       <div className="w-full my-10 ">
@@ -49,11 +53,6 @@ function CreateStudentForm({ levels }: { levels: FrontendLevel[] }) {
               type="text"
               className="input-field  "
               placeholder="Enter korean name"
-              value={nameKo}
-              onChange={(e) => {
-                setNameKo(e.target.value);
-                setSignInID(e.target.value);
-              }}
             />
           </FormRow>
           {/*Name-En*/}
@@ -64,6 +63,11 @@ function CreateStudentForm({ levels }: { levels: FrontendLevel[] }) {
               type="text"
               className="input-field  "
               placeholder="Enter english name"
+              value={nameEn}
+              onChange={(e) => {
+                setNameEn(e.target.value);
+                setSignInID(e.target.value);
+              }}
             />
           </FormRow>
         </div>

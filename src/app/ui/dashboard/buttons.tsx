@@ -78,7 +78,7 @@ export function DeleteButton({
     <Button
       onClick={(e) => {
         e.preventDefault();
-        const ok = confirm("Are you sure you want to delete?");
+        const ok = confirm("The action can't be undone.");
 
         if (ok) {
           action();
