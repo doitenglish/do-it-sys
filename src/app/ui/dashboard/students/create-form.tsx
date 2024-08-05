@@ -140,6 +140,7 @@ function CreateStudentForm({ levels }: { levels: FrontendLevel[] }) {
               type="date"
               max={maxDate}
               className="input-field -mb-0.5"
+              value={formatDate(new Date())}
             />
           </FormRow>
           {/*Phone*/}
