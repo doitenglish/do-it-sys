@@ -37,7 +37,7 @@ export type CreateStudentInput = StudentBase;
 
 export type CreateStudentOutput = MutateOutput;
 
-export type UpdateStudentInput = ByID & Omit<StudentBase, "birth" | "signInID">;
+export type UpdateStudentInput = ByID & Omit<StudentBase, "signInID">;
 
 export type UpdateStudentOutput = MutateOutput;
 

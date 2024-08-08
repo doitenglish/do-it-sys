@@ -118,7 +118,9 @@ export async function createStudent(
 export async function updateStudent(
   updateStudentInput: UpdateStudentInput
 ): Promise<UpdateStudentOutput> {
-  const { id, nameKo, nameEn, phone, level, division } = updateStudentInput;
+  const { id, nameKo, nameEn, phone, birth, level, division } =
+    updateStudentInput;
+
   try {
     const studentRef = adminDB.collection("students").doc(id);
     const doAccountRef = adminDB.collection("do").doc(id);
@@ -180,6 +182,7 @@ export async function updateStudent(
         nameEn,
         phone,
         level,
+        birth,
         levelName,
         division,
         updatedAt: Timestamp.now(),
@@ -261,6 +264,8 @@ export async function getStudents(
     studentsRef = searchByTag(studentsRef, {
       query,
     });
+
+    studentsRef = studentsRef.orderBy("createdAt", "desc");
 
     const result = await getPaginateAndCount(studentsRef, { currentPage });
 

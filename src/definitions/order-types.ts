@@ -16,6 +16,7 @@ export interface OrderBase {
   name: string;
   img_url: string;
   type: number;
+  //1: online, 2: offline
   desc: string;
   price: number;
   amount: number;

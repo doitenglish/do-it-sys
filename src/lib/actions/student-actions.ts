@@ -71,7 +71,6 @@ export async function createStudent(
 }
 
 const UpdateStudent = FormSchema.omit({
-  birth: true,
   signInID: true,
 });
 export async function updateStudent(
@@ -85,6 +84,7 @@ export async function updateStudent(
     id,
     nameKo: formData.get("nameKo"),
     nameEn: formData.get("nameEn"),
+    birth: formData.get("birth"),
     phone: formData.get("phone"),
     level: formData.get("level"),
     levelName,

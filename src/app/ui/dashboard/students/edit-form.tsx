@@ -12,6 +12,7 @@ import { ErrorBox, FormRow, Slash, UnderArr } from "../form";
 import { FrontendStudent } from "@/definitions/student-types";
 import { FrontendLevel } from "@/definitions/level-types";
 import { STUDENTS_BASE_PATH } from "@/lib/constants";
+import { formatDate } from "@/lib/utils";
 
 function EditStudentForm({
   id,
@@ -48,6 +49,8 @@ function EditStudentForm({
       setPhone(value + "-");
     }
   };
+
+  const maxDate = formatDate(new Date());
 
   return (
     <form action={dispatch} className="flex flex-col">
@@ -136,9 +139,14 @@ function EditStudentForm({
         <div className="flex gap-x-20">
           {/*Birth*/}
           <FormRow label="Birth" disabled>
-            <div id="birth" className="input-field">
-              {student.birth}
-            </div>
+            <input
+              id="birth"
+              name="birth"
+              type="date"
+              max={maxDate}
+              className="input-field -mb-0.5"
+              defaultValue={student.birth}
+            />
           </FormRow>
           {/*Phone*/}
           <FormRow label="Phone" required>
