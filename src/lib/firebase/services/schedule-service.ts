@@ -27,7 +27,7 @@ import { adminDB } from "../firebase-admin";
 import updateCountable from "./common/updateCountable";
 import { FieldValue, Query, Timestamp } from "firebase-admin/firestore";
 import { getPaginateAndCount } from "../firestore-utils";
-import { formatDate } from "@/lib/utils";
+import { formatDate, getToday } from "@/lib/utils";
 import { mutateBalanceById } from "./do-service";
 
 export async function createSchedule(
@@ -248,7 +248,7 @@ export async function getTodo(
   getTodoInput: GetTodoInput
 ): Promise<GetTodoOutput> {
   const { id, currentPage } = getTodoInput;
-  const today = new Date();
+  const today = getToday();
   const todosRef = adminDB
     .collection("schedules")
     .where("teacher", "==", id)

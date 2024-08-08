@@ -4,7 +4,7 @@ import { TableSkeleton } from "@/app/ui/dashboard/skeletons";
 import { ADMIN_SCHEDULES_BASE_PATH, DAY_OF_WEEKS } from "@/lib/constants";
 import { AdminSceduleTable } from "@/app/ui/dashboard/schedules/admin-table";
 import DayPicker from "@/app/ui/dashboard/schedules/dayPicker";
-import { getCurrentPeriod } from "@/lib/utils";
+import { getCurrentPeriod, getToday } from "@/lib/utils";
 import SelectPeriod from "@/app/ui/dashboard/schedules/select-period";
 
 async function Page({
@@ -16,7 +16,7 @@ async function Page({
     period?: string;
   };
 }) {
-  const today = new Date();
+  const today = getToday();
 
   const currentPage = Number(searchParams?.page) || 1;
 
