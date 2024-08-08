@@ -90,10 +90,12 @@ export async function AdminSceduleByClassTable({
 function ScheduleTableRow({ schedule }: { schedule: FrontendSchedule }) {
   return (
     <tr className="w-full text-neutral-800 odd:bg-neutral-100 ">
-      <TableCell className="text-lg pl-10">{schedule._className}</TableCell>
-      <TableCell>{schedule.teacherName}</TableCell>
+      <TableCell className="font-semibold text-neutral-700  pl-10">
+        {schedule._className}
+      </TableCell>
+      <TableCell className="font-medium">{schedule.teacherName}</TableCell>
 
-      <TableCell>{schedule.levelName}</TableCell>
+      <TableCell className="font-medium">{schedule.levelName}</TableCell>
       <TableCell
         className={{
           "text-neutral-400 text-sm": schedule.division == "none",

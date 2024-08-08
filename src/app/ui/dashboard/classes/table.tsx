@@ -16,13 +16,13 @@ function ClassTableRow({
 }) {
   return (
     <tr className="w-full text-neutral-800 odd:bg-neutral-100 ">
-      <TableCell className="font-normal text-lg tracking-wide text-neutral-700 pl-10">
+      <TableCell className="font-semibold  text-neutral-700 pl-10">
         {_class.name}
       </TableCell>
       <TableCell className=" tracking-wide text-neutral-700">
         {_class.textbook}
       </TableCell>
-      <TableCell>{_class.levelName}</TableCell>
+      <TableCell className="font-medium">{_class.levelName}</TableCell>
       <TableCell
         className={{
           "text-neutral-400 text-sm": _class.division == "none",

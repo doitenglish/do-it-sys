@@ -66,7 +66,7 @@ async function Page({
             <h2 className="text-xl font-light text-neutral-700">
               All Students
             </h2>
-            <SelectLevel levels={levels} />
+            <SelectLevel levels={levels} forSchedule />
           </div>
           <Suspense
             key={currentLevel + currentDivision}

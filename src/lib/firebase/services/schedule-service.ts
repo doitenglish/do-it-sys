@@ -210,7 +210,7 @@ export async function getScheduleByFilters(
 
     const result = await getPaginateAndCount(schedulesRef, {
       currentPage,
-      itemsPerPage: 7,
+      itemsPerPage: 6,
     });
 
     if (!result.ok) {

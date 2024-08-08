@@ -16,7 +16,7 @@ function StudentTableRow({ student }: { student: FrontendStudent }) {
       <TableCell className="font-normal tracking-wide text-neutral-700">
         {student.nameEn}
       </TableCell>
-      <TableCell>{student.levelName}</TableCell>
+      <TableCell className="font-medium">{student.levelName}</TableCell>
       <TableCell
         className={{
           "text-neutral-400 text-sm": student.division == "none",

@@ -1,11 +1,7 @@
 import Pagination from "../pagination";
 import { TableCell, TableHeaderCell } from "../table";
 import { formatDate, formatTimeToString } from "@/lib/utils";
-import {
-  CLASS_BASE_PATH,
-  DAY_OF_WEEKS,
-  SCHEDULES_BASE_PATH,
-} from "@/lib/constants";
+import { SCHEDULES_BASE_PATH } from "@/lib/constants";
 import { getTodo } from "@/lib/data/schedule-data";
 import { FrontendSchedule } from "@/definitions/schedule-types";
 import TotalItems from "../total-items";
@@ -15,9 +11,17 @@ import Link from "next/link";
 function TodoTableRow({ todo }: { todo: FrontendSchedule }) {
   return (
     <tr className="w-full text-neutral-800 odd:bg-neutral-100 ">
-      <TableCell className="text-lg pl-12">{todo._className}</TableCell>
-      <TableCell>{todo.levelName}</TableCell>
-      <TableCell>{todo.division}</TableCell>
+      <TableCell className="font-semibold tracking-wide text-neutral-700  pl-12">
+        {todo._className}
+      </TableCell>
+      <TableCell className="font-medium ">{todo.levelName}</TableCell>
+      <TableCell
+        className={{
+          "text-neutral-400 text-sm": todo.division == "none",
+        }}
+      >
+        {todo.division}
+      </TableCell>
       <TableCell>{formatTimeToString(todo.startTime)}</TableCell>
       <TableCell>{todo.attendees.length}</TableCell>
       <TableCell className="text-sm">{formatDate(todo.updatedAt)}</TableCell>

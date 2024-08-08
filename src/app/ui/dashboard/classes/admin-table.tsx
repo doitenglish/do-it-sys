@@ -10,7 +10,7 @@ import { ADMIN_CLASS_BASE_PATH } from "@/lib/constants";
 function ClassTableRow({ _class }: { _class: FrontendClass }) {
   return (
     <tr className="w-full text-neutral-800 odd:bg-neutral-100 ">
-      <TableCell className="font-normal text-lg tracking-wide text-neutral-700 pl-10 pr-3">
+      <TableCell className="font-semibold text-neutral-700 pl-10 pr-3">
         {_class.name}
       </TableCell>
       <TableCell className=" tracking-wide text-neutral-700">

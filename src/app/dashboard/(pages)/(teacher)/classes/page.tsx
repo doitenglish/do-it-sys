@@ -46,7 +46,7 @@ async function Page({
       </div>
       <div className="flex items-center justify-start gap-6">
         <CreateButton href="/dashboard/classes/create" label="Create" />
-        <SelectLevel levels={levels} forSchedule />
+        <SelectLevel levels={levels} />
       </div>
 
       <Suspense

@@ -3,6 +3,7 @@ import { CancelButton } from "@/app/ui/dashboard/buttons";
 import SelectStudentContainer from "@/app/ui/dashboard/schedules/students-container";
 import SelectLevel from "@/app/ui/dashboard/select-level";
 import { TableSkeleton } from "@/app/ui/dashboard/skeletons";
+import Spinner from "@/app/ui/dashboard/Spinner";
 import AttendeeTable from "@/app/ui/dashboard/students/attendees-table";
 import { ADMIN_SCHEDULES_BASE_PATH } from "@/lib/constants";
 import { getLevelsForSelect } from "@/lib/data/level-data";
@@ -24,7 +25,7 @@ async function Page({
   const attendees = await getAttendees(schedule.attendees);
   const levels = await getLevelsForSelect();
 
-  const currentLevel = searchParams?.level || "All";
+  const currentLevel = searchParams?.level || levels[0].id || "All";
   const currentDivision = searchParams?.division || "All";
   return (
     <div className="default-wrapper">
@@ -50,11 +51,15 @@ async function Page({
             <h2 className="text-xl font-light text-neutral-700">
               All Students
             </h2>
-            <SelectLevel levels={levels} />
+            <SelectLevel levels={levels} forSchedule />
           </div>
           <Suspense
             key={currentLevel + currentDivision}
-            fallback={<TableSkeleton />}
+            fallback={
+              <div className="w-full h-96 flex justify-center items-center">
+                <Spinner />
+              </div>
+            }
           >
             <SelectStudentContainer
               id={id}

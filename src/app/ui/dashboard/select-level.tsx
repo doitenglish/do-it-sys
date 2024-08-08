@@ -16,7 +16,7 @@ function SelectLevel({
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  const [level, setLevel] = useState("All");
+  const [level, setLevel] = useState(forSchedule ? levels[0].id : "All");
   const [divisions, setDivisions] = useState<string[]>([]);
   const [division, setDivision] = useState("");
 
