@@ -37,6 +37,7 @@ export async function createProduct(
 
     //createTags
     const tags = name.split(" ");
+    tags.push(name);
     tags.push(tag);
 
     const data: BackendProduct = {
