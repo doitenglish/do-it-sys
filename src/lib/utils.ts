@@ -150,11 +150,9 @@ export function formatStatus(status: number) {
 }
 
 export function getToday() {
-  // 현재 시간을 UTC로 변환
   const now = new Date();
   const utcTime = new Date(now.toUTCString());
-
-  // 9시간을 더함
+  
   utcTime.setHours(utcTime.getHours() + 9);
 
   return utcTime;
