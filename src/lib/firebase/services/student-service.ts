@@ -265,7 +265,7 @@ export async function getStudents(
       query,
     });
 
-    studentsRef = studentsRef.orderBy("createdAt", "desc");
+    //studentsRef = studentsRef.orderBy("createdAt", "desc");
 
     const result = await getPaginateAndCount(studentsRef, { currentPage });
 
