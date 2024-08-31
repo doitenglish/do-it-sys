@@ -346,7 +346,8 @@ export async function saveOnAir(
           0
         );
 
-        mutateBalanceById({
+        if(amount > 0) {
+          mutateBalanceById({
           id: attendee.id,
           transaction,
           amount,
@@ -354,6 +355,7 @@ export async function saveOnAir(
           type: "class",
           createdBy: teacherName,
         });
+        }
       }
 
       //save attendance
